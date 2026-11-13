@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise Nora</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./assets/js/conexao.js"></script>
+</head>
+<body>
+    <header class="header-container">
+        <img src="img/logo-1.png" alt="Logo da Mise Nora" class="logo">
+        <nav class="nav-botoes">
+            <a class="botao" href="login.html">Entrar</a>
+            <a class="botao" href="cadastro.html">Cadastrar</a>
+        </nav>
+    </header>
+
+    <main class="container-principal">
+        <section class="container-apresentacao">
+            <h2>Bem-vindo à Mise Nora</h2>
+            <p>Nosso compromisso é proporcionar a você mais do que uma refeição: queremos entregar um momento especial. Tudo aqui é preparado com rigor, carinho e o máximo respeito aos sabores autênticos da culinária oriental.</p>
+        </section>
+
+        <!-- SEÇÃO LA CARTE -->
+        <section class="secao-menu">
+            <h3 class="titulo-secao">A La Carte</h3>
+
+            <div class="categoria-cardapio">
+                <h4>Entradas</h4>
+                <ul class="lista-pratos">
+                   <li class="card-item">
+                       <div class="foto-container">
+                           <img src="img/entrada-1.jpg" alt="Sunomono" class="foto-padrao">
+                       </div>
+                       <h5>Sunomono Tradicional</h5>
+                       <p class="descricao">Salada de pepino japonês fatiado em molho agridoce, gergelim e lâminas de kani.</p>
+                       <div class="preco">R$ 35,00</div>
+                       <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                   </li>
+                   <li class="card-item">
+                       <div class="foto-container">
+                           <img src="img/lacarteentrada-2.jpg" alt="Guioza de Porco" class="foto-padrao">
+                       </div>
+                       <h5>Guioza de Porco (6 unid.)</h5>
+                       <p class="descricao">Pastéis japoneses recheados com carne suína e legumes, cozidos no vapor e selados na chapa.</p>
+                       <div class="preco">R$ 45,00</div>
+                       <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                   </li>
+                   <li class="card-item">
+                       <div class="foto-container">
+                           <img src="img/lacarteentrada-3.jpg" alt="Shimeji na Manteiga" class="foto-padrao">
+                       </div>
+                       <h5>Shimeji na Manteiga</h5>
+                       <p class="descricao">Cogumelos shimeji refogados na manteiga com cebolinha e molho shoyu.</p>
+                       <div class="preco">R$ 40,00</div>
+                       <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                   </li>
+                   <li class="card-item">
+                       <div class="foto-container">
+                           <img src="img/lacarteentrada-4.jpg" alt="Harumaki de Legumes" class="foto-padrao">
+                       </div>
+                       <h5>Harumaki de Legumes (4 unid.)</h5>
+                       <p class="descricao">Rolinhas primaveras crocantes recheadas com legumes selecionados.</p>
+                       <div class="preco">R$ 42,00</div>
+                      <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                   </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Pratos Principais</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/pratoprincipal-1.jpg" alt="Teppanyaki de Salmão" class="foto-padrao">
+                        </div>
+                        <h5>Teppanyaki de Salmão</h5>
+                        <p class="descricao">Salmão grelhado em uma chapa quente, servido com arroz e molho shoyu.</p>
+                        <div class="preco">R$ 65,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Teppanyaki de Salmão" data-preco="65.00">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/pratoprincipal-2.jpg" alt="Yakissoba Tradicional" class="foto-padrao">
+                        </div>
+                        <h5>Yakissoba Tradicional</h5>
+                        <p class="descricao">Macarrão stir-fry com carne, legumes e molho especial.</p>
+                        <div class="preco">R$ 55,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Yakissoba Tradicional" data-preco="55.00">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/pratoprincipal-3.jpg" alt="Chicken Katsu Curry" class="foto-padrao">
+                        </div>
+                        <h5>Chicken Katsu Curry</h5>
+                        <p class="descricao">Frango empanado servido com curry e arroz.</p>
+                        <div class="preco">R$ 50,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/pratoprincipal-4.jpg" alt="Udon Especial de Frutos do Mar" class="foto-padrao">
+                        </div>
+                        <h5>Udon Especial de Frutos do Mar</h5>
+                        <p class="descricao">Macarrão udon em caldo de frutos do mar, com camarão, polvo e vegetais.</p>
+                        <div class="preco">R$ 55,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Sobremesas</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sobremesa-1.jpg" alt="Harumaki de Nutella com Morango" class="foto-padrao">
+                        </div>
+                        <h5>Harumaki de Nutella com Morango</h5>
+                        <p class="descricao">Rolinhas crocantes recheadas com Nutella e morangos frescos.</p>
+                        <div class="preco">R$ 30,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sobremesa-2.jpg" alt="Sorvete de Matchá" class="foto-padrao">
+                        </div>
+                        <h5>Sorvete de Matchá</h5>
+                        <p class="descricao">Sorvete sabor matchá, preparado com leite de coco e adoçado com mel.</p>
+                        <div class="preco">R$ 25,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sobremesa-3.jpg" alt="Banana Flambada com Sorvete" class="foto-padrao">
+                        </div>
+                        <h5>Banana Flambada com Sorvete</h5>
+                        <p class="descricao">Banana flambada servida com sorvete de baunilha.</p>
+                        <div class="preco">R$ 30,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SEÇÃO RODÍZIO -->
+        <section class="secao-menu" id="rodizio">
+            <h3 class="titulo-secao">Rodízio</h3>
+
+            <div class="categoria-cardapio">
+                <h4>Entradas Quentes</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/entrada-1.jpg" alt="Sunomono Tradicional" class="foto-padrao">
+                        </div>
+                        <h5>Sunomono Tradicional</h5>
+                        <p class="descricao">Salada de pepino e abacaxi com molho de soja.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/lacarteentrada-3.jpg" alt="Shimeji na Manteiga" class="foto-padrao">
+                        </div>
+                        <h5>Shimeji na Manteiga</h5>
+                        <p class="descricao">Shimeji grelhado em manteiga, servido com molho de soja.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Shimeji na Manteiga" data-preco="30.00">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/entrada-3.jpg" alt="Harumaki de Queijo" class="foto-padrao">
+                        </div>
+                        <h5>Harumaki de Queijo</h5>
+                        <p class="descricao">Rolinhas crocantes recheadas com queijo.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Sushis e Rolls</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sushis-1.jpg" alt="Hot Roll Filadelfia" class="foto-padrao">
+                        </div>
+                        <h5>Hot Roll Filadélfia</h5>
+                        <p class="descricao">Roll com peixe, alga e vegetais, servido com molho de soja.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sushis-2.jpg" alt="Uramaki California" class="foto-padrao">
+                        </div>
+                        <h5>Uramaki California</h5>
+                        <p class="descricao">Roll com peixe, alga e vegetais, servido com molho de soja.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sushis-3.jpg" alt="Joy Salmao" class="foto-padrao">
+                        </div>
+                        <h5>Joy Salmão (Ebi Joy)</h5>
+                        <p class="descricao">Roll com peixe, alga e vegetais, servido com molho de soja.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Niguiris</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/niguiri-1.jpg" alt="Niguiri de salmao" class="foto-padrao">
+                        </div>
+                        <h5>Niguiri de Salmão</h5>
+                        <p class="descricao">Peixe fresco servido com arroz e alga.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Niguiri de Salmão" data-preco="25.00">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/niguiri-2.jpg" alt="Niguiri de Kani" class="foto-padrao">
+                        </div>
+                        <h5>Niguiri de Kani</h5>
+                        <p class="descricao">Peixe fresco servido com arroz e alga.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Niguiri de Kani" data-preco="25.00">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/niguiri-3.jpg" alt="Niguiri de Skin" class="foto-padrao">
+                        </div>
+                        <h5>Niguiri de Skin</h5>
+                        <p class="descricao">Pele de salmão grelhada e crocante.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Sashimis</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sashimi-1.jpg" alt="Sashimi de salmao fresco" class="foto-padrao">
+                        </div>
+                        <h5>Sashimi de Salmão Fresco</h5>
+                        <p class="descricao">Peixe fresco servido com arroz e alga.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sashimi-2.jpg" alt="Sashimi de Atum" class="foto-padrao">
+                        </div>
+                        <h5>Sashimi de Atum</h5>
+                        <p class="descricao">Peixe fresco servido com arroz e alga.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Temakis</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/temaki-1.jpg" alt="Temake de salmao" class="foto-padrao">
+                        </div>
+                        <h5>Temaki de Salmão com Cream Cheese</h5>
+                        <p class="descricao">Roll com peixe, alga e vegetais, servido com molho de soja.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/temaki-2.jpg" alt="Temaki de Salmao" class="foto-padrao">
+                        </div>
+                        <h5>Temaki de Salmão Grelhado</h5>
+                        <p class="descricao">Roll com peixe, alga e vegetais, servido com molho de soja.</p>
+                       <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Sobremesas</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sobremesa-4.jpg" alt="Mini Harumaki" class="foto-padrao">
+                        </div>
+                        <h5>Mini Harumaki de Doce de Leite</h5>
+                        <p class="descricao">Delicioso rolinho recheado com doce de leite.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/sobremesa-5.jpg" alt="Bola de Sorvete" class="foto-padrao">
+                        </div>
+                        <h5>Bola de Sorvete de Creme com Calda de Chocolate</h5>
+                        <p class="descricao">Sobremesa deliciosa com creme e calda de chocolate.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SEÇÃO MENU DEGUSTAÇÃO -->
+        <section class="secao-menu">
+            <h3 class="titulo-secao">Menu Degustação (Sequências do Chef)</h3>
+
+            <div class="categoria-cardapio">
+                <h4>Sequência Tradicional (5 Passos)</h4>
+                <p class="descricao-subtitulo">Uma experiência completa cheia de emoções.</p>
+                <ul class="lista-pratos">
+                    <li class="card-item card-degustacao">
+                        <h5>Entrada</h5>
+                        <p class="descricao">Usuzukuri de Peixe Branco ao molho ponzu cítrico e pimenta dedo-de-moça.</p>
+                        <h5>Entrada Quente</h5>
+                        <p class="descricao">Bao de Barriga de Porco cozido no vapor com picles de pepino e molho hoisin.</p>
+                        <h5>Prato Principal 1</h5>
+                        <p class="descricao">Tataki de Salmão levemente selado com crosta de gergelim e azeite de ervas.</p>
+                        <h5>Prato Principal 2</h5>
+                        <p class="descricao">Seleção de 8 Sushis Especiais (Niguiris trufados e Gunkan com ovas de massago).</p>
+                        <h5>Sobremesa</h5>
+                        <p class="descricao">Sorvete de Matchá com telha crocante de gergelim.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Sequência Premium do Chef (6 Passos)</h4>
+                <p class="descricao-subtitulo">Uma experiência premium com os melhores ingredientes e técnicas do chef.</p>
+                <ul class="lista-pratos">
+                    <li class="card-item card-degustacao">
+                        <h5>Entrada</h5>
+                        <p class="descricao">Ceviche Nikkei de peixe do dia, leite de tigre e chips de batata-doce.</p>
+                        <h5>Entrada Quente</h5>
+                        <p class="descricao">Ebi Furai (Camarões empanados em farinha panko com molho tonkatsu).</p>
+                        <h5>Prato Principal 1</h5>
+                        <p class="descricao">Dupla de Niguiri de Salmão Selado com flor de sal e azeite de trufas brancas.</p>
+                        <h5>Prato Principal 2</h5>
+                        <p class="descricao">Sashimi Misto (Salmão, Atum e Peixe Branco) com raspas de limão siciliano.</p>
+                        <h5>Prato Principal 3</h5>
+                        <p class="descricao">Robata de Wagyu grelhada ao molho teriyaki artesanal.</p>
+                        <h5>Sobremesa</h5>
+                        <p class="descricao">Petit Gâteau de Chá Verde com sorvete de baunilha.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Sobremesa" data-preco="15.00">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SEÇÃO COMBINADOS -->
+        <section class="secao-menu">
+            <h3 class="titulo-secao">Combinados (Barcas)</h3>
+            <div class="categoria-cardapio">
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/barca-1.jpg" alt="Barca Pequena" class="foto-padrao">
+                        </div>
+                        <h5>Barca Pequena — 20 Unidades</h5>
+                        <p class="descricao">4 Sashimis de Salmão, 4 Niguiris de Salmão, 4 Uramakis Filadélfia, 4 Hossomakis de Salmão, 4 Hot Rolls.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/barca-2.jpg" alt="Barca Média" class="foto-padrao">
+                        </div>
+                        <h5>Barca Média — 30 Unidades</h5>
+                        <p class="descricao">6 Sashimis de Salmão, 6 Niguiris de Salmão, 6 Uramakis Filadélfia, 6 Hossomakis de Salmão, 6 Hot Rolls.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/barca-3.jpg" alt="Barca Grande" class="foto-padrao">
+                        </div>
+                        <h5>Barca Grande — 50 Unidades</h5>
+                        <p class="descricao">10 Sashimis de Salmão, 10 Niguiris de Salmão, 10 Uramakis Filadélfia, 10 Hossomakis de Salmão, 10 Hot Rolls.</p>
+                       <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/barca-4.jpg" alt="Barca Festa" class="foto-padrao">
+                        </div>
+                        <h5>Barca Festa / Especial — 100 Unidades</h5>
+                        <p class="descricao">20 Sashimis de Salmão, 20 Niguiris de Salmão, 20 Uramakis Filadélfia, 20 Hossomakis de Salmão, 20 Hot Rolls.</p>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SEÇÃO BEBIDAS -->
+        <section class="secao-menu">
+            <h3 class="titulo-secao">Bebidas</h3>
+
+            <div class="categoria-cardapio">
+                <h4>Refrigerantes</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/coca-1.jpg" alt="Coca Cola 350ml" class="foto-padrao">
+                        </div>
+                        <h5>Coca Cola 350ml</h5>
+                        <div class="preco">R$ 10,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/coca-2.jpg" alt="Coca Cola Zero 350ml" class="foto-padrao">
+                        </div>
+                        <h5>Coca Cola Zero 350ml</h5>
+                        <div class="preco">R$ 10,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/guarana-1.jpg" alt="Guaraná Antarctica 350ml" class="foto-padrao">
+                        </div>
+                        <h5>Guaraná Antarctica 350ml</h5>
+                        <div class="preco">R$ 10,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item"> 
+                        <div class="foto-container">
+                            <img src="img/guarana-2.jpg" alt="Guaraná Antarctica Zero 350ml" class="foto-padrao">
+                        </div>
+                        <h5>Guaraná Antarctica Zero 350ml</h5>
+                        <div class="preco">R$ 10,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Águas</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item"> 
+                        <div class="foto-container">
+                            <img src="img/agua-1.jpg" alt="Água Mineral 500ml" class="foto-padrao">
+                        </div>
+                        <h5>Água Mineral 500ml</h5>
+                        <div class="preco">R$ 9,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/agua-2.jpg" alt="Água com Gás 500ml" class="foto-padrao">
+                        </div>
+                        <h5>Água com Gás 500ml</h5>
+                        <div class="preco">R$ 10,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Sucos Naturais</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/suco-1.jpg" alt="Suco de Laranja" class="foto-padrao">
+                        </div>
+                        <h5>Suco de Laranja 400ml</h5>
+                        <div class="preco">R$ 18,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/suco-2.jpg" alt="Limonada" class="foto-padrao">
+                        </div>
+                        <h5>Limonada 400ml</h5>
+                        <div class="preco">R$ 18,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Drinks sem Álcool</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/drinck-1.jpg" alt="Virgin Sake Mule" class="foto-padrao">
+                        </div>
+                        <h5>Virgin Sake Mule</h5>
+                        <p class="descricao">Drink sem álcool com ervas especiais.</p>
+                        <div class="preco">R$ 30,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/drinck-2.jpg" alt="Tropical Sunset" class="foto-padrao">
+                        </div>
+                        <h5>Tropical Sunset</h5>
+                        <p class="descricao">Drink sem álcool com frutas tropicais.</p>
+                        <div class="preco">R$ 35,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Drinks com Álcool</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/drinckalcool-1.jpg" alt="Tokio Sunset" class="foto-padrao">
+                        </div>
+                        <h5>Tokio Sunset</h5>
+                        <p class="descricao">Coquetel à base de Saquê, Aperol, suco de laranja e xarope de frutas vermelhas.</p>
+                        <div class="preco">R$ 33,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/drinckalcool-2.jpg" alt="Gin Tônica Oriental" class="foto-padrao">
+                        </div>
+                        <h5>Gin Tônica Oriental</h5>
+                        <p class="descricao">Coquetel à base de Gin, Tônica e ervas orientais.</p>
+                        <div class="preco">R$ 35,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="categoria-cardapio">
+                <h4>Bebidas Alcoólicas</h4>
+                <ul class="lista-pratos">
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/heineken-1.jpg" alt="Cerveja Heineken" class="foto-padrao">
+                        </div>
+                        <h5>Cerveja Heineken 350ml</h5>
+                        <p class="descricao">Cerveja lager de alta qualidade, com sabor suave e refrescante.</p>
+                        <div class="preco">R$ 12,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                    <li class="card-item">
+                        <div class="foto-container">
+                            <img src="img/amstel-1.jpg" alt="Cerveja Amstel" class="foto-padrao">
+                        </div>
+                        <h5>Cerveja Amstel 350ml</h5>
+                        <p class="descricao">Cerveja lager de alta qualidade, com sabor suave e refrescante.</p>
+                        <div class="preco">R$ 10,00</div>
+                        <button class="botaoadicionaraocarrinho" data-nome="Temaki Especial" data-preco="28.90">Adicionar ao Carrinho</button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+<footer>
+        <nav class="menu-inferior">
+            <a href="index.html" class="botaorodape ativo" title="Início">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </a>
+            <a href="reservar.html" class="botaorodape" title="Reservar Mesa">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0-2-.9-2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+            </a>
+            <a href="carrinho.html" class="botaorodape" title="Carrinho">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </a>
+            <!-- BOTÃO DE PERFIL REINSERIDO NO RODAPÉ -->
+            <a href="perfil.html" class="botaorodape" title="Perfil">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </a>
+        </nav>
+    </footer>
+
+    <script type="module" src="./assets/js/app.js"></script>
+    <script type="module" src="./assets/js/menu.js"></script>
+    <script type="module" src="./assets/js/conexao.js"></script>
+    <script type="module" src="./assets/js/cart.js"></script>
+</body>
+</html>

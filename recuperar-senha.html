@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise Nora - Recuperar Senha</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Carrega a biblioteca do Supabase no <head> ou no início dos scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./assets/js/conexao.js"></script>
+</head>
+<body>
+
+    <header>
+        <img src="img/Logo.png" alt="Logo da Mise Nora" width="200px">
+        <nav>
+            <br>
+            <a class="botao" href="login.html">Voltar para o Login</a>
+        </nav>
+    </header>
+
+    <div class="containerapresentacao">
+        <br>
+        <h2>Recuperação de Senha</h2>
+        <p>Informe seu e-mail cadastrado para receber as instruções de redefinição de senha.</p>
+        <br>
+    </div>
+    <br>
+
+    <div class="containerprincipal">
+        <div class="containercardapio">
+            <h3>Redefinir Acesso</h3>
+            <br>
+            <form action="recuperar_action.php" method="POST" class="form-login">
+                <div>
+                    <label for="email"><strong>E-mail cadastrado:</strong></label><br>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+                <br>
+                <button type="submit" class="botaoadicionaraocarrinho">Enviar Instruções</button>
+            </form>
+            <br>
+            <p>Lembrou da senha? <a href="login.html">Clique aqui para entrar</a>.</p>
+        </div>
+    </div>
+    <br>
+
+    <footer>
+        <nav class="menu-inferior">
+            <a href="index.html" class="botaorodape" title="Início">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </a>
+            <a href="reservar.html" class="botaorodape" title="Reservar Mesa">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0-2-.9-2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+            </a>
+            <a href="carrinho.html" class="botaorodape" title="Carrinho">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </a>
+            <a href="perfil.html" class="botaorodape" title="Perfil">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </a>
+        </nav>
+    </footer>
+<script type="module" src="./assets/js/app.js"></script>
+</body>
+</html>

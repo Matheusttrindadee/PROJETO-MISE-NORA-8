@@ -1,0 +1,705 @@
+/* ==========================================================================
+   MISE NORA - ESTILOS GERAIS & PALETA DE CORES (DARK THEME)
+   ========================================================================== */
+
+:root {
+    --bg-main: #0a0a0c;         /* Fundo preto da aplicação */
+    --bg-card: #141418;         /* Fundo cinza-escuro dos cards */
+    --bg-card-hover: #1c1c22;   /* Hover nos cards */
+    --bg-input: #1a1a20;        /* Fundo dos campos de texto */
+    
+    --accent-red: #e50914;      /* Vermelho destaque (botões, badges) */
+    --accent-red-hover: #c10711;/* Vermelho escuro no hover */
+    
+    --text-primary: #ffffff;    /* Texto principal branco */
+    --text-secondary: #a0a0ab;  /* Texto secundário cinza */
+    --text-muted: #666673;      /* Texto suave */
+    
+    --border-color: #262630;    /* Bordas sutis */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    
+    --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Reset Padrão */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-main);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.5;
+    padding-bottom: 90px; /* Espaço para o menu fixo inferior */
+}
+
+/* ==========================================================================
+   HEADER / NAVEGAÇÃO SUPERIOR (COMPACTO E DINÂMICO)
+   ========================================================================== */
+
+/* ==========================================================================
+   HEADER / NAVEGAÇÃO SUPERIOR (ESTRUTURA ORIGINAL CORRIGIDA)
+   ========================================================================== */
+
+.header-container {
+    background-color: rgba(10, 10, 12, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px; /* Seu padding original */
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between; /* Mantém a logo num canto e os botões no outro */
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.header-container img.logo {
+    max-width: 90px; /* Tamanho original da logo */
+    height: auto;
+    transition: max-width 0.3s ease-in-out;
+}
+
+/* Estado compactado ao rolar (sem alterar o layout flex) */
+.header-container.rolado {
+    padding: 6px 20px !important;
+    background-color: rgba(10, 10, 12, 0.98) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.header-container.rolado img.logo {
+    max-width: 50px !important; /* A logo encolhe suavemente mantendo a posição */
+}
+/* ==========================================================================
+   CONTAINERS E SEÇÕES
+   ========================================================================== */
+/* 1. Centraliza a caixa de apresentação e seus textos */
+.container-apresentacao { 
+    text-align: center; 
+    padding: 25px 20px; 
+    background: linear-gradient(180deg, rgba(229, 9, 20, 0.08) 0%, rgba(10, 10, 12, 0) 100%); 
+} 
+
+.container-apresentacao h2 { 
+    font-size: 1.6rem; 
+    margin-bottom: 8px; 
+    color: var(--text-primary); 
+} 
+
+.container-apresentacao p { 
+    color: var(--text-secondary); 
+    font-size: 0.95rem; 
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+/* 2. Centraliza os links e textos soltos abaixo dos formulários (como "Já possui uma conta?" e recuperação de senha) */
+.containercardapio {
+    text-align: center; /* Centraliza todos os textos e links dentro do painel do cartão/formulário */
+}
+
+.containercardapio form {
+    text-align: left; /* Mantém os inputs e labels alinhados de forma organizada para digitação */
+}
+
+/* Garante que os links e parágrafos de rodapé fiquem perfeitamente centralizados */
+.containercardapio p, 
+.containercardapio div:has(a[href*="recuperar-senha"]),
+.containercardapio div:has(a[href*="login"]),
+.containercardapio div:has(a[href*="cadastro"]) {
+    text-align: center;
+}
+
+/* Centraliza e organiza o cabeçalho em coluna */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Organiza o menu dentro do cabeçalho centralizado */
+header nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Centraliza o bloco de apresentação e seus textos */
+.container-apresentacao, 
+.containerapresentacao {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 20px;
+}
+
+.container-apresentacao h2, 
+.containerapresentacao h2 {
+    text-align: center;
+    width: 100%;
+}
+
+.container-apresentacao p, 
+.containerapresentacao p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.container-principal {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Títulos de Seção */
+.container-principal h3, 
+main h1 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 25px 0 15px 0;
+    border-left: 4px solid var(--accent-red);
+    padding-left: 10px;
+}
+
+.categoria-cardapio h4 {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.descricao-subtitulo {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   CARDS DE PRATOS / ITENS DO CARDÁPIO (GRID)
+   ========================================================================== */
+
+ul {
+    list-style: none;
+}
+
+.lista-pratos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.card-item {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(229, 9, 20, 0.4);
+    background-color: var(--bg-card-hover);
+}
+
+/* Container rígido para a foto (Impede qualquer distorção) */
+.foto-container {
+    width: 100%;
+    height: 160px !important;            /* Altura fixa padrão para desktop */
+    min-height: 160px !important;
+    overflow: hidden !important;         /* Esconde qualquer excesso da imagem */
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    background-color: #000;   /* Fundo escuro de segurança */
+    flex-shrink: 0;
+}
+
+/* A foto agora se ajusta perfeitamente dentro da caixinha */
+.foto-padrao {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;       /* Recorta proporcionalmente sem esticar */
+    object-position: center !important; /* Centraliza o foco do prato */
+    display: block !important;
+}
+
+.card-item h5 {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.card-item .descricao {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    flex-grow: 1;
+}
+
+.card-item .preco {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+/* Card especial de Degustação */
+.card-degustacao {
+    grid-column: 1 / -1;
+}
+
+.card-degustacao h5 {
+    margin-top: 10px;
+    color: var(--accent-red);
+}
+
+/* ==========================================================================
+   BOTÕES E ELEMENTOS CLICÁVEIS
+   ========================================================================== */
+
+.botao, 
+button[type="submit"], 
+#btn-confirmar-reserva, 
+#btn-salvar-pessoais, 
+#btn-alterar-senha, 
+#btn-salvar-preferencias, 
+#btn-finalizar {
+    background-color: var(--accent-red);
+    color: var(--text-primary);
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+/* BOTÃO DE ADICIONAR AO CARRINHO (COMPACTO E ISOLADO) */
+.botaoadicionaraocarrinho {
+    background-color: var(--accent-red);
+    color: var(--text-primary);
+    border: none;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;                  /* Impede que o botão estique na tela inteira */
+    align-self: flex-start;       /* Alinha à esquerda no card sem ocupar 100% */
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 5px;
+}
+
+.botao:hover, 
+.botaoadicionaraocarrinho:hover, 
+button[type="submit"]:hover, 
+#btn-confirmar-reserva:hover,
+#btn-finalizar:hover {
+    background-color: var(--accent-red-hover);
+}
+
+.botao:active, 
+.botaoadicionaraocarrinho:active {
+    transform: scale(0.98);
+}
+
+/* Botões de Login/Header */
+header nav .botao {
+    width: auto;
+    padding: 8px 18px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+}
+
+header nav .botao:hover {
+    background-color: var(--accent-red);
+    border-color: var(--accent-red);
+}
+
+/* Botões Especiais de Conta */
+#btn-logout {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+#btn-excluir-conta {
+    background-color: rgba(229, 9, 20, 0.15);
+    color: var(--accent-red);
+    border: 1px solid var(--accent-red);
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   FORMULÁRIOS (LOGIN, CADASTRO, PERFIL E RESERVA)
+   ========================================================================== */
+
+form {
+    background-color: var(--bg-card);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    max-width: 480px;
+    margin: 0 auto 20px auto;
+}
+
+label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--accent-red);
+}
+
+/* Links */
+a {
+    color: var(--accent-red);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   TABELAS (CARRINHO E HISTÓRICO DE PEDIDOS)
+   ========================================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+td {
+    color: var(--text-primary);
+}
+
+/* ==========================================================================
+   RODAPÉ / MENUBAR FIXO NA PARTE INFERIOR
+   ========================================================================== */
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #050505;
+    border-top: 1px solid #1a1a1a;
+    padding: 12px 0;
+    z-index: 1000;
+}
+
+footer nav.menu-inferior {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.botaorodape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 8px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.85;
+}
+
+.icone-vermelho {
+    width: 30px;
+    height: 30px;
+    fill: #e50914;
+}
+
+.botaorodape:hover,
+.botaorodape.ativo {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+   ========================================================================== */
+
+@media (max-width: 600px) {
+    .lista-pratos {
+        grid-template-columns: 1fr 1fr; /* 2 colunas no celular */
+        gap: 10px;
+    }
+    
+    .card-item {
+        padding: 10px;
+    }
+    
+    .foto-container {
+        height: 110px !important; /* Altura menor e proporcional no mobile */
+        min-height: 110px !important;
+    }
+}
+#btn-finalizar, 
+.botaofinalizar {
+    width: auto !important;
+    display: inline-block !important;
+    align-self: flex-start !important;
+    padding: 12px 24px;
+}
+/* Esconde as seções por padrão */
+.secao-oculta {
+    display: none !important;
+}
+/* ==========================================================================
+   ESTILIZAÇÃO DAS ABAS DO PERFIL
+   ========================================================================== */
+
+.menu-abas-perfil {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Deixa os botões de aba com tamanho automático e visual customizado */
+.menu-abas-perfil .botao-aba {
+    width: auto !important;
+    padding: 10px 16px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Quando o botão passar o mouse ou estiver ativo */
+.menu-abas-perfil .botao-aba:hover {
+    border-color: var(--accent-red);
+    color: var(--text-primary);
+}
+
+.menu-abas-perfil .botao-aba.ativo {
+    background-color: var(--accent-red);
+    color: var(--text-primary);
+    border-color: var(--accent-red);
+    font-weight: 700;
+}
+/* ==========================================================================
+   ESTILIZAÇÃO DA TAG DE ROSTO / FOTO DE PERFIL
+   ========================================================================== */
+
+.avatar-tag-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    border: 3px solid var(--accent-red); /* Borda vermelha de destaque */
+    overflow: hidden;
+    background-color: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Garante que a foto preencha perfeitamente a tag circular */
+.avatar-tag-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilo opcional para uma tag/etiqueta flutuante colada na foto */
+.tag-moldura {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(229, 9, 20, 0.85); /* Fundo vermelho translúcido */
+    color: var(--text-primary);
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 3px 0;
+    font-weight: 650;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+/* ==========================================================================
+   FOTO DE PERFIL COM BOTÃO INTEGRADO NA TAG
+   ========================================================================== */
+
+.avatar-tag-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 25px auto;
+    border-radius: 50%;
+    border: 3px solid var(--accent-red);
+    overflow: hidden;
+    background-color: var(--bg-card);
+}
+
+.avatar-tag-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Botão de alterar foto flutuando integrado na tag */
+.botao-alterar-foto {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: var(--text-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 6px 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+    opacity: 0.85;
+}
+/* Esconde apenas as seções da página de perfil por padrão */
+#secao-avatar,
+#secao-dados-pessoais,
+#secao-historico,
+#secao-seguranca,
+#secao-preferencias,
+#secao-acoes-conta {
+    display: none;
+}
+/* Estado compactado com prioridade máxima */
+.header-container.rolado {
+    padding: 4px 15px !important;
+    background-color: rgba(10, 10, 12, 0.98) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+.header-container.rolado img.logo {
+    max-width: 45px !important;
+    transition: max-width 0.3s ease !important;
+}
+/* ==========================================================================
+   ESTILIZAÇÃO ESPECÍFICA PARA OS BOTÕES DE AÇÕES DA CONTA (SAIR / EXCLUIR)
+   ========================================================================== */
+
+/* Container ou área onde os botões estão localizados no perfil */
+#secao-acoes-conta {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os botões */
+    gap: 12px;
+    padding: 20px 0;
+}
+
+/* Botão Sair - Tamanho proporcional, sem esticar */
+#btn-logout {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+    width: 220px !important;            /* Largura controlada e elegante */
+    max-width: 100% !important;
+    padding: 12px 20px !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    transition: all 0.2s ease !important;
+    display: inline-block !important;
+}
+
+#btn-logout:hover {
+    border-color: var(--accent-red) !important;
+    background-color: rgba(229, 9, 20, 0.08) !important;
+}
+
+/* Botão Excluir Conta - Tamanho proporcional, destaque em vermelho suave */
+#btn-excluir-conta {
+    background-color: rgba(229, 9, 20, 0.12) !important;
+    color: var(--accent-red) !important;
+    border: 1px solid var(--accent-red) !important;
+    width: 220px !important;            /* Mesma largura para harmonia visual */
+    max-width: 100% !important;
+    padding: 12px 20px !important;
+    border-radius: var(--radius-sm) !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    transition: all 0.2s ease !important;
+    display: inline-block !important;
+    margin-top: 0 !important;           /* Remove margens antigas que esticavam */
+}
+
+#btn-excluir-conta:hover {
+    background-color: rgba(229, 9, 20, 0.25) !important;
+}
+

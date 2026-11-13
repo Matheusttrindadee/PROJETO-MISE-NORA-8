@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise Nora - Carrinho</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Carrega a biblioteca do Supabase no <head> ou no início dos scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./assets/js/conexao.js"></script>
+</head>
+<body>
+
+    <main>
+
+        <section id="lista-carrinho">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Subtotal</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="itens-carrinho">
+                    <!-- Os itens adicionados pelo usuário aparecerão aqui via JavaScript -->
+                </tbody>
+            </table>
+            
+            <p id="carrinho-vazio">Seu carrinho está vazio.</p>
+        </section>
+
+        <section id="resumo-carrinho">
+            <div>
+                <span>Total:</span>
+                <strong id="valor-total">R$ 0,00</strong>
+            </div>
+            
+            <button type="button" id="btn-finalizar">Finalizar Pedido</button>
+            <!-- Modal Personalizado para Pedir a Mesa -->
+<div id="modal-mesa" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background: #fff; padding: 30px; border-radius: 12px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+        <h3 style="margin-bottom: 15px; color: #333; font-family: inherit;">Número da Mesa</h3>
+        <p style="margin-bottom: 20px; color: #666; font-size: 14px;">Por favor, informe o número da sua mesa para continuar com o pedido:</p>
+        
+        <input type="number" id="input-numero-mesa" placeholder="Ex: 5" style="width: 100%; padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 20px; text-align: center; outline: none;">
+        
+        <div style="display: flex; gap: 10px;">
+            <button id="btn-cancelar-mesa" style="flex: 1; padding: 12px; background: #ccc; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Cancelar</button>
+            <button id="btn-confirmar-mesa" style="flex: 1; padding: 12px; background: #e67e22; color: #fff; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Confirmar</button>
+        </div>
+    </div>
+</div>
+        </section>
+
+    </main>
+
+    <footer>
+        <nav class="menu-inferior">
+            <a href="index.html" class="botaorodape ativo" title="Início">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </a>
+            <a href="reservar.html" class="botaorodape" title="Reservar Mesa">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0-2-.9-2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+            </a>
+            <a href="carrinho.html" class="botaorodape" title="Carrinho">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </a>
+            <!-- BOTÃO DE PERFIL REINSERIDO NO RODAPÉ -->
+            <a href="perfil.html" class="botaorodape" title="Perfil">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </a>
+        </nav>
+    </footer>
+<script type="module" src="./assets/js/app.js"></script>
+<script type="module" src="./assets/js/cart.js"></script>
+</body>
+</html>

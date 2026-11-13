@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise Nora - Cadastrar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html"><img src="img/logo-1.png"  alt="Logo da Mise Nora" width="200px"></a>
+    </header>
+
+    <div class="containerapresentacao">
+        <br>
+        <h2>Crie sua Conta</h2>
+        <p>Cadastre-se para realizar pedidos com facilidade, acompanhar suas reservas e ter uma experiência personalizada no Mise Nora.</p>
+        <br>
+    </div>
+    <br>
+
+    <div class="containerprincipal">
+        <div class="containercardapio">
+            <h3>Cadastro de Cliente</h3>
+            <br>
+            <form class="form-cadastro" id="form-cadastro">
+                <div>
+                    <label for="nome"><strong>Nome Completo:</strong></label><br>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+                <br>
+                <div>
+                    <label for="email"><strong>E-mail:</strong></label><br>
+                    <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+                </div>
+                <br>
+                <div>
+                    <label for="telefone"><strong>Telefone / WhatsApp:</strong></label><br>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                </div>
+                <br>
+                <div>
+                    <label for="senha"><strong>Senha:</strong></label><br>
+                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha segura" required>
+                </div>
+                <br>
+                <div>
+                    <label for="confirmar_senha"><strong>Confirmar Senha:</strong></label><br>
+                    <input type="password" id="confirmar_senha" name="confirmar_senha" placeholder="Repita sua senha" required>
+                </div>
+                <br>
+                <button type="submit" class="botaoadicionaraocarrinho">Criar Conta</button>
+            </form>
+            <br>
+            <p>Já possui uma conta? <a href="login.html">Clique aqui para entrar</a>.</p>
+        </div>
+    </div>
+    <br>
+
+  <footer>
+        <nav class="menu-inferior">
+            <a href="index.html" class="botaorodape" title="Início">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                </svg>
+            </a>
+            <a href="reservar.html" class="botaorodape" title="Reservar Mesa">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0-2-.9-2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+            </a>
+            <a href="carrinho.html" class="botaorodape" title="Carrinho">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+            </a>
+            <a href="perfil.html" class="botaorodape" title="Perfil">
+                <svg viewBox="0 0 24 24" class="icone-vermelho">
+                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+            </a>
+        </nav>
+    </footer>
+
+    <script>
+        document.getElementById('form-cadastro').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Evita que a página recarregue
+
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const telefone = document.getElementById('telefone').value;
+            const senha = document.getElementById('senha').value;
+            const confirmarSenha = document.getElementById('confirmar_senha').value;
+
+            // Validação simples de senha
+            if (senha !== confirmarSenha) {
+                alert("As senhas não coincidem!");
+                return;
+            }
+
+            try {
+                const resposta = await fetch('/cadastrar', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ nome, email, telefone, senha })
+                });
+
+                const resultado = await resposta.json();
+
+                if (resposta.ok && resultado.sucesso) {
+                    alert("Cadastro realizado com sucesso!");
+                    window.location.href = 'login.html'; // Redireciona para o login
+                } else {
+                    alert("Erro ao cadastrar: " + (resultado.erro || "Tente novamente."));
+                }
+            } catch (erro) {
+                console.error("Erro na requisição:", erro);
+                alert("Erro de conexão com o servidor.");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise Nora - Painel de Pedidos</title>
+   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: #f4f7f6; color: #333; padding: 20px; }
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #fff; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    h1 { color: #2c3e50; font-size: 1.5rem; }
+    .btn-atualizar { background: #3498db; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+    .grid-pedidos { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .pedido-card { background: white; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid #f39c12; }
+    .pedido-card.pronto { border-left-color: #27ae60; }
+    .pedido-card.cancelado { border-left-color: #e74c3c; }
+    .pedido-card h3 { margin-bottom: 10px; font-size: 1.1rem; color: #34495e; }
+    .pedido-card p { margin-bottom: 8px; font-size: 0.95rem; color: #555; }
+    .acoes { margin-top: 15px; display: flex; gap: 10px; }
+    .acoes button { flex: 1; padding: 8px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; color: white; }
+    .btn-preparo { background: #f39c12; }
+    .btn-pronto { background: #27ae60; }
+    .vazio { text-align: center; color: #7f8c8d; grid-column: 1 / -1; margin-top: 40px; font-size: 1.1rem; }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>🍽️ Mise Nora - Cozinha / Painel</h1>
+        <button class="btn-atualizar" onclick="carregarPedidos()">Atualizar Pedidos</button>
+    </header>
+
+    <div id="lista-pedidos" class="grid-pedidos">
+        <p class="vazio">Carregando pedidos...</p>
+    </div>
+
+<script>
+  async function alterarStatus(idPedido, novoStatus) {
+    try {
+      const resposta = await fetch(`/api/pedidos/${idPedido}/status`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status_pedido: novoStatus })
+      });
+
+      const resultado = await resposta.json();
+      if (resultado.sucesso) {
+        carregarPedidos();
+      } else {
+        alert("Erro ao atualizar status: " + resultado.erro);
+      }
+    } catch (erro) {
+      console.error("Erro na requisição:", erro);
+      alert("Erro ao comunicar com o servidor.");
+    }
+  }
+
+  async function carregarPedidos() {
+    try {
+      const resposta = await fetch('/api/pedidos');
+      const pedidos = await resposta.json();
+
+      const container = document.getElementById('lista-pedidos');
+      if (!container) return;
+
+      container.innerHTML = ''; 
+
+      if (!Array.isArray(pedidos) || pedidos.length === 0) {
+        container.innerHTML = '<p class="vazio">Nenhum pedido encontrado.</p>';
+        return;
+      }
+
+      pedidos.forEach(pedido => {
+        let classeStatus = '';
+        if (pedido.status_pedido === 'Pronto') classeStatus = 'pronto';
+        if (pedido.status_pedido === 'Cancelado') classeStatus = 'cancelado';
+
+        let itensHtml = '';
+        if (pedido.itens_pedido && pedido.itens_pedido.length > 0) {
+          pedido.itens_pedido.forEach(item => {
+            const nomeProduto = item.nome_produto || item.produtos?.nome || item.name || `Item do Cardápio`;
+            const precoItem = item.preco_unitario || item.preco || 0;
+            
+            itensHtml += `<li>${item.quantidade || 1}x ${nomeProduto} - R$ ${Number(precoItem).toFixed(2)}</li>`;
+          });
+        } else {
+          itensHtml = '<li>Nenhum item detalhado.</li>';
+        }
+
+        container.innerHTML += `
+          <div class="pedido-card ${classeStatus}">
+            <h3>Pedido #${pedido.id} - Mesa: ${pedido.numero_mesa || 'Não informada'}</h3>
+            <p><strong>Cliente:</strong> ${pedido.nome_cliente || 'Balcão'}</p>
+            <p><strong>Telefone:</strong> ${pedido.telefone_cliente || '-'}</p>
+            <p><strong>Total:</strong> R$ ${Number(pedido.total || 0).toFixed(2)}</p>
+            <p><strong>Status:</strong> ${pedido.status_pedido || 'Pendente'}</p>
+            
+            <div class="itens-pedido" style="margin: 10px 0; padding: 8px; background: rgba(0,0,0,0.04); border-radius: 6px;">
+              <small><strong>Itens do Pedido:</strong></small>
+              <ul style="margin: 5px 0 0 15px; padding: 0; font-size: 0.9em;">
+                ${itensHtml}
+              </ul>
+            </div>
+
+            <div class="acoes">
+              <button class="btn-preparo" onclick="alterarStatus(${pedido.id}, 'Em Preparo')">Em Preparo</button>
+              <button class="btn-pronto" onclick="alterarStatus(${pedido.id}, 'Pronto')">Pronto</button>
+              <button class="btn-cancelar" style="background: #e74c3c; color: white;" onclick="alterarStatus(${pedido.id}, 'Cancelado')">Cancelar</button>
+            </div>
+          </div>
+        `;
+      });
+
+    } catch (erro) {
+      console.error("Erro ao carregar os pedidos:", erro);
+    }
+  }
+
+  carregarPedidos();
+  setInterval(carregarPedidos, 5000);
+</script>
+</body>
+</html>
